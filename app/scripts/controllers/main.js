@@ -9,9 +9,21 @@ angular.module('advisorframeApp')
     $scope.mfs = [];
 
     $scope.addSecurity = function () {
-    	$scope.securities.push($scope.etf)
-    	$scope.etf = '';
 
+        var myRadioButton = $scope.securityType;
+
+        if (myRadioButton == "etf"){
+    		$scope.etfs.push($scope.security);
+    		$scope.security = '';
+    	}
+        else (myRadioButton == "common") {
+            $scope.commons.push($scope.security);
+            $scope.security = '';
+        }
+        else (myRadioButton == "mf") {
+            $scope.mfs.push($scope.security);
+            $scope.security = '';
+        };
 
     };       
 
