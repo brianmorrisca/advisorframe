@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Securities</h2>
+
+  <!-- Todos input -->
+  <form role="form" ng-submit="addSecurity()">
+    <div class="row">
+      <div class="input-group">
+        <input type="text" ng-model="etf" placeholder="Add a security here" class="form-control">
+        <span class="input-group-btn">
+          <input type="submit" class="btn btn-primary" value="Add">
+        </span>
+      </div>
+    </div>
+  </form>
+  <p></p>
+
+  <div id="etfs" ng-model="etf">
+
+    <p class="form-group" ng-repeat="security in securities">
+      {{security}}
+    </p>
+  </div>
+  <div style="background-color:blue; color:white;">
+    <p class="form-group" ng-repeat="etf in etfs">
+      {{etf}}
+    </p>
+
+
+  </div>
+
+<!--
+  <div id="common">
+    <p class="form-group" ng-repeat="security.common in securities">
+      <input type="text" ng-model="security" class="form-control">
+    </p>
+  </div>
+
+  <div id="mfs">
+    <p class="form-group" ng-repeat="security.mfs in securities">
+      <input type="text" ng-model="security" class="form-control">
+    </p>
+  </div> -->
+
+</div>
