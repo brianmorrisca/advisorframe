@@ -86,14 +86,31 @@ body {
 
 /* Categories */
 
-#etfs { }
+.category {
+  clear: both;
+  width: 600px;
+  margin-bottom: 70px;
+}
 
-#common { }
+.category-heading {
+  padding-bottom: 5px;
+  font-size: 1em;
+  border-bottom: 1px solid #ccc;
+}
 
-#mfs { }
+.category-row {
+  clear: both;
+}
 
-.category { clear:both; width:600px; margin-bottom:30px;}
-.category-heading { padding-bottom:5px; font-size:1em; border-bottom:1px solid #ccc; }
-.category-row { clear:both; }
-.category-names { float:left;}
-.category-amounts{float:right; }
+.category-names {
+  float: left;
+}
+
+.category-amounts {
+  float: right;
+}
+
+.category-total { float:left; }
+
+#total-portfolio { padding:10px 0; border-top:1px solid #ccc; border-bottom:1px solid #ccc; clear: both; width: 600px; }
+
