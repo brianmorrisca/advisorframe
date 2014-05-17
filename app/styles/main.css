@@ -77,3 +77,23 @@ body {
     border-bottom: 0;
   }
 }
+
+/* Input Area */
+#input-radio-options { float:left; margin-right:20px;}
+#input-security-box { float:left; width:330px; margin-right:20px; }
+#input-security-amount { float:left; width:100px; margin-right:20px;}
+#input-security-button { }
+
+/* Categories */
+
+#etfs { }
+
+#common { }
+
+#mfs { }
+
+.category { clear:both; width:600px; margin-bottom:30px;}
+.category-heading { padding-bottom:5px; font-size:1em; border-bottom:1px solid #ccc; }
+.category-row { clear:both; }
+.category-names { float:left;}
+.category-amounts{float:right; }

@@ -3,40 +3,44 @@
 
   <!-- Todos input -->
   <form role="form" ng-submit="addSecurity()">
-    <div class="row">
-      <div class="input-group">
+    <div class="input-group">
+      <div id="input-radio-options">
         <input type="radio" ng-model="securityType" value="etf"> ETF <br/>
         <input type="radio" ng-model="securityType" value="common"> Common <br/>
         <input type="radio" ng-model="securityType" value="mf"> Mutual Fund <br/>
-        <input type="text" ng-model="security" placeholder="Add a security here" class="form-control">
-        <span class="input-group-btn">
-          <input type="submit" class="btn btn-primary" value="Add">
-        </span>
       </div>
+      <input type="text" ng-model="securityName" placeholder="Add a security here" id="input-security-box">
+      <input type="text" ng-model="securityAmount" placeholder="Value" id="input-security-amount">
+      <input type="submit" id="input-security-button" value="Add">
     </div>
+
   </form>
   <p></p>
 
-
-
-  <div id="etfs" ng-model="security" style="background-color:green; color:white;">
-    <p class="form-group" ng-repeat="etf in etfs">
-      {{etf}}
-    </p>
+  <div id="etfs" class="category">
+    <h1 class="category-heading">Exchange Traded Funds</h1>
+    <div class="category-row" ng-repeat="etf in etfs">
+      <p class="category-names">{{etf.name}}</p>
+      <p class="category-amounts">{{etf.amount}}</p>
+    </div>
   </div>
 
-  <div id="common" ng-model="security" style="background-color:blue; color:white;">
-    <p class="form-group" ng-repeat="common in commons">
-      {{common}}
-    </p>
+  <div id="common" class="category">
+    <h1 class="category-heading">Common Shares</h1>
+    <div class="category-row" ng-repeat="common in commons">
+      <p class="category-names">{{common.name}}</p>
+      <p class="category-amounts">{{common.amount}}</p>
+    </div>
 
   </div>
 
 
-  <div id="mfs" ng-model="security" style="background-color:red; color:white;">
-    <p class="form-group" ng-repeat="mf in mfs">
-      {{mf}}
-    </p>
+  <div id="mfs" class="category">
+    <h1 class="category-heading">Mutual Funds</h1>
+    <div class="category-row" ng-repeat="mf in mfs">
+      <p class="category-names">{{mf.name}}</p>
+      <p class="category-amounts">{{mf.amount}}</p>
+    </div>
   </div>
 
 </div>

@@ -3,26 +3,29 @@
 angular.module('advisorframeApp')
   .controller('MainCtrl', function ($scope) {
 
-    $scope.securities = ['BCE', 'MANU'];
-    $scope.etfs = ['XTR', 'XRE'];
+    $scope.securities = []
+    $scope.etfs = [];
     $scope.commons = [];
     $scope.mfs = [];
 
     $scope.addSecurity = function () {
 
-        var myRadioButton = $scope.securityType;
+        var radioType = $scope.securityType;
 
-        if (myRadioButton == "etf"){
-    		$scope.etfs.push($scope.security);
-    		$scope.security = '';
+        if (radioType == "etf"){
+            $scope.etfs.push({name:$scope.securityName, amount:$scope.securityAmount});
+    		$scope.securityName = '';
+            $scope.securityAmount = '';
     	}
-        else (myRadioButton == "common") {
-            $scope.commons.push($scope.security);
-            $scope.security = '';
+        else if (radioType == "common") {
+            $scope.commons.push({name:$scope.securityName, amount:$scope.securityAmount});
+            $scope.securityName = '';
+            $scope.securityAmount = '';
         }
-        else (myRadioButton == "mf") {
-            $scope.mfs.push($scope.security);
-            $scope.security = '';
+        else if (radioType == "mf") {
+            $scope.mfs.push({name:$scope.securityName, amount:$scope.securityAmount});
+            $scope.securityName = '';
+            $scope.securityAmount = '';
         };
 
     };       
