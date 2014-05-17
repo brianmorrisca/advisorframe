@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Securities</h2>
+  <h2>Portfolio</h2>
 
   <!-- Todos input -->
   <form role="form" ng-submit="addSecurity()">
@@ -23,6 +23,11 @@
       <p class="category-names">{{etf.name}}</p>
       <p class="category-amounts">{{etf.amount}}</p>
     </div>
+    <div class="category-row">
+      <p class="category-total">Total Exchange Traded Funds</p>
+      <p class="category-amounts">{{totalEtfs}}</p>
+    </div>
+
   </div>
 
   <div id="common" class="category">
@@ -30,6 +35,10 @@
     <div class="category-row" ng-repeat="common in commons">
       <p class="category-names">{{common.name}}</p>
       <p class="category-amounts">{{common.amount}}</p>
+    </div>
+    <div class="category-row">
+      <p class="category-total">Total Common Shares</p>
+      <p class="category-amounts">{{totalCommons}}</p>
     </div>
 
   </div>
@@ -41,6 +50,16 @@
       <p class="category-names">{{mf.name}}</p>
       <p class="category-amounts">{{mf.amount}}</p>
     </div>
+    <div class="category-row">
+      <p class="category-total">Total Mutual Funds</p>
+      <p class="category-amounts">{{totalMfs}}</p>
+    </div>
+  </div>
+
+  <div id="total-portfolio">
+    <p class="category-total">Total Portfolio</p>
+    <p class="category-amounts">{{totalPortfolio}}</p>
+    <br>
   </div>
 
 </div>
