@@ -18,46 +18,71 @@
   <p></p>
 
   <div id="etfs" class="category">
-    <h1 class="category-heading">Exchange Traded Funds</h1>
-    <div class="category-row" ng-repeat="etf in etfs">
-      <p class="category-names">{{etf.name}}</p>
-      <p class="category-amounts">{{etf.amount}}</p>
-    </div>
-    <div class="category-row">
-      <p class="category-total">Total Exchange Traded Funds</p>
-      <p class="category-amounts">{{totalEtfs}}</p>
+    <div class="category-heading">
+      <h1>Exchange Traded Funds</h1>
+      <h2>&#37 of Assets</h2>
+      <h2 class="margin-right">Market Value</h2>
+      <br class="clear">
     </div>
 
+    <div class="category-row" ng-repeat="etf in etfs">
+      <p class="category-names">{{etf.name}}</p>
+      <p class="category-percent">{{etf.percent}} %</p>
+      <p class="category-amounts">{{etf.amount}}</p>
+    </div>
+
+    <div class="category-total-row">
+      <p class="category-total">Total Exchange Traded Funds</p>
+      <p class="category-percent">{{percentEtfs}} %</p>
+      <p class="category-amounts">{{totalEtfs}}</p>
+    </div>
   </div>
 
   <div id="common" class="category">
-    <h1 class="category-heading">Common Shares</h1>
+    <div class="category-heading">
+      <h1>Common Shares</h1>
+      <h2>&#37 of Assets</h2>
+      <h2 class="margin-right">Market Value</h2>
+      <br class="clear">
+    </div>
+
     <div class="category-row" ng-repeat="common in commons">
       <p class="category-names">{{common.name}}</p>
+      <p class="category-percent">{{common.percent}} %</p>
       <p class="category-amounts">{{common.amount}}</p>
     </div>
-    <div class="category-row">
+
+    <div class="category-total-row">
       <p class="category-total">Total Common Shares</p>
+      <p class="category-percent">{{percentCommons}} %</p>
       <p class="category-amounts">{{totalCommons}}</p>
     </div>
-
   </div>
 
-
   <div id="mfs" class="category">
-    <h1 class="category-heading">Mutual Funds</h1>
+    <div class="category-heading">
+      <h1>Mutual Funds</h1>
+      <h2>&#37 of Assets</h2>
+      <h2 class="margin-right">Market Value</h2>
+      <br class="clear">
+    </div>
+
     <div class="category-row" ng-repeat="mf in mfs">
       <p class="category-names">{{mf.name}}</p>
+      <p class="category-percent">{{mf.percent}} %</p>
       <p class="category-amounts">{{mf.amount}}</p>
     </div>
-    <div class="category-row">
+
+    <div class="category-total-row">
       <p class="category-total">Total Mutual Funds</p>
+      <p class="category-percent">{{percentMfs}} %</p>
       <p class="category-amounts">{{totalMfs}}</p>
     </div>
   </div>
 
   <div id="total-portfolio">
     <p class="category-total">Total Portfolio</p>
+    <p class="category-percent">{{percentPortfolio}} %</p>
     <p class="category-amounts">{{totalPortfolio}}</p>
     <br>
   </div>

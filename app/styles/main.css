@@ -93,13 +93,21 @@ body {
 }
 
 .category-heading {
-  padding-bottom: 5px;
-  font-size: 1em;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; margin-bottom:10px;
 }
+
+.category-heading h1 {font-size: 1em; float:left;}
+.category-heading h2 {float:right; font-size:1em;}
+.margin-right { margin-right:20px;}
 
 .category-row {
   clear: both;
+}
+
+.category-total-row {
+  clear: both;
+  border-top:1px solid #ccc;
+  padding-top:5px;
 }
 
 .category-names {
@@ -108,9 +116,13 @@ body {
 
 .category-amounts {
   float: right;
+  margin-right:40px;
 }
+.category-percent { float:right; }
+
 
 .category-total { float:left; }
 
-#total-portfolio { padding:10px 0; border-top:1px solid #ccc; border-bottom:1px solid #ccc; clear: both; width: 600px; }
+#total-portfolio { font-weight:bold; padding:10px 0; border-top:1px solid #ccc; border-bottom:1px solid #ccc; clear: both; width: 600px; }
 
+.clear {clear:both;}
