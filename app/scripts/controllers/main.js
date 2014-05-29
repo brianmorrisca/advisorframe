@@ -3,7 +3,7 @@
 angular.module('advisorframeApp')
   .controller('MainCtrl', function ($scope) {
 
-    $scope.etfs = [];
+    var etfs = $scope.etfs = [];
     $scope.commons = [];
     $scope.mfs = [];
 
