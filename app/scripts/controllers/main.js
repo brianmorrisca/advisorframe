@@ -3,9 +3,9 @@
 angular.module('advisorframeApp')
   .controller('MainCtrl', function ($scope) {
 
-    var etfs = $scope.etfs = [];
-    $scope.commons = [];
-    $scope.mfs = [];
+    var etfs = $scope.etfs = [],
+        commons = $scope.commons = [],
+        mfs = $scope.mfs = [];
 
     $scope.totalEtfs = 0;
     $scope.totalCommons = 0;
@@ -45,21 +45,21 @@ angular.module('advisorframeApp')
             var radioType = $scope.securityType;
 
             if (radioType == "etf"){
-                $scope.etfs.push({name:$scope.securityName, amount:$scope.securityAmount});
+                etfs.push({name:$scope.securityName, amount:$scope.securityAmount});
                 $scope.totalEtfs += parseInt($scope.securityAmount);
         		$scope.totalPortfolio += parseInt($scope.securityAmount);
                 $scope.securityName = null;
                 $scope.securityAmount = null;
         	}
             else if (radioType == "common") {
-                $scope.commons.push({name:$scope.securityName, amount:$scope.securityAmount});
+                commons.push({name:$scope.securityName, amount:$scope.securityAmount});
                 $scope.totalCommons += parseInt($scope.securityAmount);
                 $scope.totalPortfolio += parseInt($scope.securityAmount);
                 $scope.securityName = null;
                 $scope.securityAmount = null;
             }
             else if (radioType == "mf") {
-                $scope.mfs.push({name:$scope.securityName, amount:$scope.securityAmount});
+                mfs.push({name:$scope.securityName, amount:$scope.securityAmount});
                 $scope.totalMfs += parseInt($scope.securityAmount);
                 $scope.totalPortfolio += parseInt($scope.securityAmount);
                 $scope.securityName = null;
@@ -82,22 +82,22 @@ angular.module('advisorframeApp')
                 }
             };
 
-            for (var i = 0; i <= $scope.commons.length; i++) {
-                if ($scope.commons.length == 0) {
+            for (var i = 0; i <= commons.length; i++) {
+                if (commons.length == 0) {
                     break;
                 }
-                $scope.commons[i].percent = ((parseInt($scope.commons[i].amount)/$scope.totalPortfolio)*100).toFixed(2);
-                if (i == $scope.commons.length - 1) {
+                commons[i].percent = ((parseInt(commons[i].amount)/$scope.totalPortfolio)*100).toFixed(2);
+                if (i == commons.length - 1) {
                     break;
                 }
             };
 
-            for (var i = 0; i <= $scope.mfs.length; i++) {
-                if ($scope.mfs.length == 0) {
+            for (var i = 0; i <= mfs.length; i++) {
+                if (mfs.length == 0) {
                     break;
                 }
-                $scope.mfs[i].percent = ((parseInt($scope.mfs[i].amount)/$scope.totalPortfolio)*100).toFixed(2);
-                if (i == $scope.mfs.length - 1) {
+                mfs[i].percent = ((parseInt(mfs[i].amount)/$scope.totalPortfolio)*100).toFixed(2);
+                if (i == mfs.length - 1) {
                     break;
                 }
             };

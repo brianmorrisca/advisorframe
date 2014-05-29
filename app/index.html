@@ -17,6 +17,9 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+   <!-- D3 PIE -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.min.js"></script>
+       
   </head>
   <body ng-app="advisorframeApp">
     <!--[if lt IE 7]>
@@ -58,5 +61,13 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <!-- endbuild -->
+
+        <!-- D3 GRAPH -->
+        <button onClick="changeData()">Change Data</button>
+        <div id="braido" class="jumbotron"></div>             
+        <script src="gradientpie.js"></script>
+        <script src="d3piecode.js"></script>   
+
+
 </body>
 </html>
