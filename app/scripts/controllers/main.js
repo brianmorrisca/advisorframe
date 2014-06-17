@@ -18,26 +18,7 @@ angular.module('advisorframeApp')
     $scope.percentPortfolio = 100;
 
 
-    $scope.pieUpdate = function (common, etf, mf) {
-        
-        var salesData=[
-              {label:"Common", color:"#3366CC"},
-              {label:"ETF", color:"#DC3912"},
-              {label:"MF", color:"#FF9900"}
-            ];
 
-            var svg = d3.select("#braido").append("svg").attr("width", 700).attr("height", 400);
-
-            svg.append("g").attr("id","salespie");
-              
-            gradPie.draw("salespie", portfolioPercentages(), 200, 200, 100);
-
-            function portfolioPercentages(){
-
-              return salesData.map(function(d){ 
-                return {label:d.label, value:1000*Math.random(), color:d.color};});
-            }
-    };
 
     $scope.addSecurity = function () {
 
@@ -97,7 +78,7 @@ angular.module('advisorframeApp')
                 if ($scope.etfs.length == 0) {
                     break;
                 }
-                $scope.etfs[i].percent = ((parseInt($scope.etfs[i].amount)/$scope.totalPortfolio)*100).toFixed(2);
+                etfs[i].percent = ((parseInt($scope.etfs[i].amount)/$scope.totalPortfolio)*100).toFixed(2);
                 if (i == $scope.etfs.length - 1) {
                     break;
                 }
@@ -124,9 +105,28 @@ angular.module('advisorframeApp')
             };
 
         };
-        $scope.pieUpdate();
+        $scope.pieUpdate($scope.percentCommons, $scope.percentEtfs, $scope.percentMfs);
     };       
 
+    $scope.pieUpdate = function (common, etf, mf) {
+        
+        var salesData=[
+              {label:"Common", percent:common, color:"#3366CC"},
+              {label:"ETF", percent:etf, color:"#DC3912"},
+              {label:"MF", percent:mf, color:"#FF9900"}
+            ];
 
+            var svg = d3.select("#braido").append("svg").attr("width", 700).attr("height", 400);
+
+            svg.append("g").attr("id","salespie");
+              
+            gradPie.draw("salespie", portfolioPercentages(), 200, 200, 100);
+
+            function portfolioPercentages(){
+
+              return salesData.map(function(d){ 
+                return {label:d.label, value:d.percent, color:d.color};});
+            }
+    };
 
   });
