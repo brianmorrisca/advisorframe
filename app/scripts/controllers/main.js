@@ -17,7 +17,7 @@ angular.module('advisorframeApp')
     $scope.percentMfs = 0;
     $scope.percentPortfolio = 100;
 
-
+    var svg = d3.select("#braido").append("svg").attr("width", 700).attr("height", 400);
 
 
     $scope.addSecurity = function () {
@@ -115,8 +115,6 @@ angular.module('advisorframeApp')
               {label:"ETF", percent:etf, color:"#DC3912"},
               {label:"MF", percent:mf, color:"#FF9900"}
             ];
-
-            var svg = d3.select("#braido").append("svg").attr("width", 700).attr("height", 400);
 
             svg.append("g").attr("id","salespie");
               
