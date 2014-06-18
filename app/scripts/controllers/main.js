@@ -111,9 +111,9 @@ angular.module('advisorframeApp')
     $scope.pieUpdate = function (common, etf, mf) {
         
         var salesData=[
-              {label:"Common", percent:common, color:"#3366CC"},
-              {label:"ETF", percent:etf, color:"#DC3912"},
-              {label:"MF", percent:mf, color:"#FF9900"}
+              {label:"Common", percent:common, color:"#00065C"},
+              {label:"ETF", percent:etf, color:"#136B00"},
+              {label:"MF", percent:mf, color:"#A60303"}
             ];
 
             svg.append("g").attr("id","salespie");
