@@ -17,7 +17,7 @@ angular.module('advisorframeApp')
     $scope.percentMfs = 0;
     $scope.percentPortfolio = 100;
 
-    var svg = d3.select("#braido").append("svg").attr("width", 700).attr("height", 400);
+    var svg = d3.select("#pieGraphArea").append("svg").attr("width", 300).attr("height", 300);
 
 
     $scope.addSecurity = function () {
@@ -118,12 +118,13 @@ angular.module('advisorframeApp')
 
             svg.append("g").attr("id","salespie");
               
-            gradPie.draw("salespie", portfolioPercentages(), 200, 200, 100);
+            gradPie.draw("salespie", portfolioPercentages(), 120, 120, 100);
 
             function portfolioPercentages(){
 
-              return salesData.map(function(d){ 
-                return {label:d.label, value:d.percent, color:d.color};});
+                return salesData.map(function(d){ 
+                    return {label:d.label, value:d.percent, color:d.color};
+                });
             }
     };
 

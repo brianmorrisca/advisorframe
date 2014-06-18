@@ -1,91 +1,97 @@
 <div class="container">
   <h2>Portfolio</h2>
 
-  <!-- Todos input -->
-  <form role="form" ng-submit="addSecurity()">
-    <div class="input-group">
-      <div id="input-radio-options">
-        <input type="radio" ng-model="securityType" value="etf"> ETF <br/>
-        <input type="radio" ng-model="securityType" value="common"> Common <br/>
-        <input type="radio" ng-model="securityType" value="mf"> Mutual Fund <br/>
+
+  <!-- portfolio input -->
+  <div id="portfolio-input">
+    <form role="form" ng-submit="addSecurity()">
+      <div class="input-group">
+        <div id="input-radio-options">
+          <input type="radio" ng-model="securityType" value="etf"> ETF <br/>
+          <input type="radio" ng-model="securityType" value="common"> Common <br/>
+          <input type="radio" ng-model="securityType" value="mf"> Mutual Fund <br/>
+        </div>
+        <input type="text" ng-model="securityName" placeholder="Add a security here" id="input-security-box">
+        <input type="text" ng-model="securityAmount" placeholder="Value" id="input-security-amount">
+        <input type="submit" id="input-security-button" value="Add">
       </div>
-      <input type="text" ng-model="securityName" placeholder="Add a security here" id="input-security-box">
-      <input type="text" ng-model="securityAmount" placeholder="Value" id="input-security-amount">
-      <input type="submit" id="input-security-button" value="Add">
+
+    </form>
+    <p></p>
+
+    <div id="etfs" class="category">
+      <div class="category-heading">
+        <h1>Exchange Traded Funds</h1>
+        <h2>&#37 of Assets</h2>
+        <h2 class="margin-right">Market Value</h2>
+        <br class="clear">
+      </div>
+
+      <div class="category-row" ng-repeat="etf in etfs">
+        <p class="category-names">{{etf.name}}</p>
+        <p class="category-percent">{{etf.percent}} %</p>
+        <p class="category-amounts">{{etf.amount}}</p>
+      </div>
+
+      <div class="category-total-row">
+        <p class="category-total">Total Exchange Traded Funds</p>
+        <p class="category-percent">{{percentEtfs}} %</p>
+        <p class="category-amounts">{{totalEtfs}}</p>
+      </div>
     </div>
 
-  </form>
-  <p></p>
+    <div id="common" class="category">
+      <div class="category-heading">
+        <h1>Common Shares</h1>
+        <h2>&#37 of Assets</h2>
+        <h2 class="margin-right">Market Value</h2>
+        <br class="clear">
+      </div>
 
-  <div id="etfs" class="category">
-    <div class="category-heading">
-      <h1>Exchange Traded Funds</h1>
-      <h2>&#37 of Assets</h2>
-      <h2 class="margin-right">Market Value</h2>
-      <br class="clear">
+      <div class="category-row" ng-repeat="common in commons">
+        <p class="category-names">{{common.name}}</p>
+        <p class="category-percent">{{common.percent}} %</p>
+        <p class="category-amounts">{{common.amount}}</p>
+      </div>
+
+      <div class="category-total-row">
+        <p class="category-total">Total Common Shares</p>
+        <p class="category-percent">{{percentCommons}} %</p>
+        <p class="category-amounts">{{totalCommons}}</p>
+      </div>
     </div>
 
-    <div class="category-row" ng-repeat="etf in etfs">
-      <p class="category-names">{{etf.name}}</p>
-      <p class="category-percent">{{etf.percent}} %</p>
-      <p class="category-amounts">{{etf.amount}}</p>
+    <div id="mfs" class="category">
+      <div class="category-heading">
+        <h1>Mutual Funds</h1>
+        <h2>&#37 of Assets</h2>
+        <h2 class="margin-right">Market Value</h2>
+        <br class="clear">
+      </div>
+
+      <div class="category-row" ng-repeat="mf in mfs">
+        <p class="category-names">{{mf.name}}</p>
+        <p class="category-percent">{{mf.percent}} %</p>
+        <p class="category-amounts">{{mf.amount}}</p>
+      </div>
+
+      <div class="category-total-row">
+        <p class="category-total">Total Mutual Funds</p>
+        <p class="category-percent">{{percentMfs}} %</p>
+        <p class="category-amounts">{{totalMfs}}</p>
+      </div>
     </div>
 
-    <div class="category-total-row">
-      <p class="category-total">Total Exchange Traded Funds</p>
-      <p class="category-percent">{{percentEtfs}} %</p>
-      <p class="category-amounts">{{totalEtfs}}</p>
+    <div id="total-portfolio">
+      <p class="category-total">Total Portfolio</p>
+      <p class="category-percent">{{percentPortfolio}} %</p>
+      <p class="category-amounts">{{totalPortfolio}}</p>
+      <br>
     </div>
+
   </div>
 
-  <div id="common" class="category">
-    <div class="category-heading">
-      <h1>Common Shares</h1>
-      <h2>&#37 of Assets</h2>
-      <h2 class="margin-right">Market Value</h2>
-      <br class="clear">
-    </div>
-
-    <div class="category-row" ng-repeat="common in commons">
-      <p class="category-names">{{common.name}}</p>
-      <p class="category-percent">{{common.percent}} %</p>
-      <p class="category-amounts">{{common.amount}}</p>
-    </div>
-
-    <div class="category-total-row">
-      <p class="category-total">Total Common Shares</p>
-      <p class="category-percent">{{percentCommons}} %</p>
-      <p class="category-amounts">{{totalCommons}}</p>
-    </div>
-  </div>
-
-  <div id="mfs" class="category">
-    <div class="category-heading">
-      <h1>Mutual Funds</h1>
-      <h2>&#37 of Assets</h2>
-      <h2 class="margin-right">Market Value</h2>
-      <br class="clear">
-    </div>
-
-    <div class="category-row" ng-repeat="mf in mfs">
-      <p class="category-names">{{mf.name}}</p>
-      <p class="category-percent">{{mf.percent}} %</p>
-      <p class="category-amounts">{{mf.amount}}</p>
-    </div>
-
-    <div class="category-total-row">
-      <p class="category-total">Total Mutual Funds</p>
-      <p class="category-percent">{{percentMfs}} %</p>
-      <p class="category-amounts">{{totalMfs}}</p>
-    </div>
-  </div>
-
-  <div id="total-portfolio">
-    <p class="category-total">Total Portfolio</p>
-    <p class="category-percent">{{percentPortfolio}} %</p>
-    <p class="category-amounts">{{totalPortfolio}}</p>
-    <br>
-  </div>
+  <div id="pieGraphArea"></div>             
 
 
 </div>

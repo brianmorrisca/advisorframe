@@ -4,6 +4,8 @@ body {
   padding-bottom: 20px;
 }
 
+p { margin-bottom:0px; }
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -32,9 +34,9 @@ body {
 }
 
 /* Customize container */
-@media (min-width: 768px) {
+@media (min-width: 1080px) {
   .container {
-    max-width: 730px;
+    max-width: 1080px;
   }
 }
 .container-narrow > hr {
@@ -78,6 +80,11 @@ body {
   }
 }
 
+
+#portfolio-input { float:left; }
+/*PIE AREA */
+#pieGraphArea { float:left;}
+
 /* Input Area */
 #input-radio-options { float:left; margin-right:20px;}
 #input-security-box { float:left; width:330px; margin-right:20px; }
@@ -93,7 +100,7 @@ body {
 }
 
 .category-heading {
-  border-bottom: 1px solid #ccc; margin-bottom:10px;
+  border-bottom: 1px solid #ccc;
 }
 
 .category-heading h1 {font-size: 1em; float:left;}
@@ -102,6 +109,10 @@ body {
 
 .category-row {
   clear: both;
+  overflow:auto;
+  border-right: 1px solid #ccc;
+  padding:5px 5px 5px 0;
+
 }
 
 .category-total-row {
