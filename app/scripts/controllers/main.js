@@ -68,13 +68,20 @@ angular.module('advisorframeApp')
                 $scope.securityAmount = null;
             };
 
+
+        };
+        $scope.calcPercentage();
+        $scope.pieUpdate($scope.percentCommons, $scope.percentEtfs, $scope.percentMfs);
+    };       
+
+    $scope.calcPercentage = function () {
             $scope.percentEtfs = (($scope.totalEtfs / $scope.totalPortfolio)*100).toFixed(2);
             $scope.percentCommons = (($scope.totalCommons / $scope.totalPortfolio)*100).toFixed(2);
             $scope.percentMfs = (($scope.totalMfs / $scope.totalPortfolio)*100).toFixed(2);
 
             
 
-            for (var i = 0; i <= $scope.etfs.length; i++) {
+            for (var i = 0; i <= etfs.length; i++) {
                 if ($scope.etfs.length == 0) {
                     break;
                 }
@@ -104,9 +111,34 @@ angular.module('advisorframeApp')
                 }
             };
 
-        };
-        $scope.pieUpdate($scope.percentCommons, $scope.percentEtfs, $scope.percentMfs);
-    };       
+    }
+
+    $scope.removeCommonSecurity = function (index) {
+      $scope.totalCommons -= parseInt($scope.commons[index].amount);
+      $scope.totalPortfolio -= parseInt($scope.commons[index].amount);
+
+      $scope.commons.splice(index, 1);
+      $scope.calcPercentage();
+      $scope.pieUpdate($scope.percentCommons, $scope.percentEtfs, $scope.percentMfs);
+    };
+
+    $scope.removeEtfSecurity = function (index) {
+      $scope.totalEtfs -= parseInt($scope.etfs[index].amount);
+      $scope.totalPortfolio -= parseInt($scope.etfs[index].amount);
+
+      $scope.etfs.splice(index, 1);
+      $scope.calcPercentage();
+      $scope.pieUpdate($scope.percentCommons, $scope.percentEtfs, $scope.percentMfs);
+    };
+
+    $scope.removeMfSecurity = function (index) {
+      $scope.totalMfs -= parseInt($scope.mfs[index].amount);
+      $scope.totalPortfolio -= parseInt($scope.mfs[index].amount);
+
+      $scope.mfs.splice(index, 1);
+      $scope.calcPercentage();
+      $scope.pieUpdate($scope.percentCommons, $scope.percentEtfs, $scope.percentMfs);
+    };        
 
     $scope.pieUpdate = function (common, etf, mf) {
         

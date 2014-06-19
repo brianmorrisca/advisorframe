@@ -28,6 +28,7 @@
       </div>
 
       <div class="category-row" ng-repeat="etf in etfs">
+        <button class="removeBtn" ng-click="removeEtfSecurity($index)" aria-label="Remove">X</button>
         <p class="category-names">{{etf.name}}</p>
         <p class="category-percent">{{etf.percent}} %</p>
         <p class="category-amounts">{{etf.amount}}</p>
@@ -49,7 +50,8 @@
       </div>
 
       <div class="category-row" ng-repeat="common in commons">
-        <p class="category-names">{{common.name}}</p>
+        <button class="removeBtn" ng-click="removeCommonSecurity($index)" aria-label="Remove">X</button>
+        <p class="category-names">{{common.name}}</p>    
         <p class="category-percent">{{common.percent}} %</p>
         <p class="category-amounts">{{common.amount}}</p>
       </div>
@@ -70,6 +72,7 @@
       </div>
 
       <div class="category-row" ng-repeat="mf in mfs">
+        <button class="removeBtn" ng-click="removeMfSecurity($index)" aria-label="Remove">X</button>
         <p class="category-names">{{mf.name}}</p>
         <p class="category-percent">{{mf.percent}} %</p>
         <p class="category-amounts">{{mf.amount}}</p>

@@ -91,6 +91,8 @@ p { margin-bottom:0px; }
 #input-security-amount { float:left; width:100px; margin-right:20px;}
 #input-security-button { }
 
+
+
 /* Categories */
 
 .category {
@@ -109,11 +111,13 @@ p { margin-bottom:0px; }
 
 .category-row {
   clear: both;
-  overflow:auto;
+  overflow: auto; 
   border-right: 1px solid #ccc;
   padding:5px 5px 5px 0;
 
 }
+
+.removeBtn{float:left; width:30px; }
 
 .category-total-row {
   clear: both;
